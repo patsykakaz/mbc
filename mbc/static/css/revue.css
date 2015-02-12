@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/*
+	orange = rgb(236,117,38);
+	blue = rgb(54,140,143);
+	light-orange = rgb(244,177,116);
+	lightBlue = rgb(77,152,155);
+*/
+
+#main img{
+	width: 100%;
+	max-width: 300px;
+	box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+.titre{
+	border-bottom: 1px dotted rgb(77,152,155);
+	padding: 20px 0px 20px 0px;
+	margin-bottom: 30px;
+	color: rgb(77,152,155);
+}
+
+#cover img{
+}
+#baseline{
+	text-align: justify;
+	font-weight: lighter;
+	font-style: italic;
+	font-size: 21px;
+	color: rgb(77,152,155);
+}
+#revue-data{
+	margin: 10px 0 10px 0;
+	text-align: left;
+}
+#revue-data h4{
+	display: inline-block;
+	background-color: rgb(244,177,116);
+	border: 1px dotted rgb(236,117,38);
+	font-weight: normal;
+	font-size: 15px;
+}#revue-data h4 strong{
+	color: white;
+	font-weight: normal;
+	font-size: 16px;
+}
+
+#revues-univers{
+	border-left: 1px dotted rgb(77,152,155);
+}
+#revues-univers h3{
+	margin-top: 0;
+	color: rgb(77,152,155);
+}
+#revues-univers img{
+	display: inline-block;
+	margin-top: 18px;
+}
+
+#presentation-revue{
+	padding-right: 20px;
+	text-align: justify;
+	line-height: 30px;
+	letter-spacing: 1.5px;
+	font-size: 18px;
+	color: rgb(150,150,150);
+}
