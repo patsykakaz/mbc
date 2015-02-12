@@ -19,7 +19,7 @@ a, a:hover, a:focus{
 	text-decoration: none;
 }
 strong{
-    color: red;
+    color: rgb(77,152,155);
 }
 .fa-long-arrow-right{
 	color: rgb(244,177,116);
