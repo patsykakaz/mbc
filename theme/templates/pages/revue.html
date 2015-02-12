@@ -1,0 +1,47 @@
+{% extends "pages/page.html" %}
+{% load  staticfiles mezzanine_tags %}
+
+{% block extra_css %}
+	<link rel="stylesheet" href="{% static "css/revue.css" %}">
+{% endblock %}
+
+{% block main %}
+
+<div id='main' class='container'>
+    <div class='row'>
+    <h1 class='titre'>{{ revue.title|upper }}</h1>
+
+        <div id='cover' class='col-md-3'>
+            <img src='{{ MEDIA_URL }}couvertures/{{ revue.couverture }}' alt='couverture de la revue' />
+        </div>
+        <div class='col-md-7'>
+            <div id='baseline'>"{{ revue.baseline }}"</div>
+            <div id='revue-data'>
+                <h4 class='label label-warning'>Univers: <strong>{{ revue.univers }}</strong></h4>
+                <h4 class='label label-warning'>Type de revue: <strong>{{ revue.type_revue }}</strong></h4>
+                <h4 class='label label-warning'>Format: <strong>{{ revue.format_revue }}</strong></h4>
+                <h4 class='label label-warning'>Périodicité: <strong>{{ revue.periodicite }}</strong></h4>
+                <h4 class='label label-warning'>Tirage: <strong>{{ revue.tirage }}</strong></h4>
+                <h4 class='label label-warning'>Pagination: <strong>{{ revue.pagination }}</strong></h4>
+                <h4 class='label label-warning'>Lectorat: <strong>{{ revue.lectorat }}</strong></h4>
+            </div>
+            <div id='presentation-revue'>
+                {{ revue.presentation }}
+            </div>
+        </div>
+        <div id='revues-univers' class='col-md-2'>
+            <h3>Les autres revues de l'univers</h3>
+            {% for revue_univers in revues_univers %}
+                <a href='{{ revue_univers.get_absolute_url }}'>
+                    <img src='{{ MEDIA_URL }}couvertures/{{ revue_univers.couverture }}' alt='couverture revue du même univers' />
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static "js/revue.js" %}"></script>
+{% endblock %}

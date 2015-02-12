@@ -1,0 +1,50 @@
+{% extends "pages/page.html" %}
+{% load  staticfiles mezzanine_tags %}
+
+{% block extra_css %}
+	<link rel="stylesheet" href="{% static "css/univers.css" %}">
+{% endblock %}
+
+{% block main %}
+<div id='banner-wrapper'>
+    <img id='banner' src='{{ MEDIA_URL }}univers/full_cover/{{ univers.full_cover }}' alt="présentation de l'univers de la communication grand format" />
+    <h2 id='banner-titre'> {{ page.univers.title|upper }} </h2>
+</div>
+
+<div id='univers-presentation'>
+        {{ page.univers.content|richtext_filters|safe }}
+</div>
+
+<div id='liste-all-titres'>
+    <h2 class='titre'>TOUS LES TITRES</h2>
+    <div class='container-all-titres'>
+        <!-- ITEMS -->
+        {% for revue in revues %}
+        <div class='layer-container-titre'>
+        <a class='container-titre' href="{{ revue.get_absolute_url }}" class='container-titre'>
+            <div class='cover-wrapper'>
+                <div class='cover-detail'>
+                    <p>
+                        <h4 class="cover-detail-univers">Univers<br />
+                            <b class="univers">{{ revue.univers.title|upper }}</b>
+                        </h4>
+                        <p>{{ revue.baseline }}</p>
+                    </p>
+                </div>
+            </div>
+            <img src='{{ MEDIA_URL }}couvertures/{{ revue.couverture }}' alt='couverture de la revue' />
+            <div class='info-titre'>
+                <h3>{{ revue.title }}</h3>
+            </div>
+        </a>
+        </div>
+        {% endfor %}
+        <!-- ITEMS -->
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static "js/univers.js" %}"></script>
+{% endblock %}

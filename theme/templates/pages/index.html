@@ -1,0 +1,61 @@
+{% extends "pages/richtextpage.html" %}
+
+{% block main %}
+
+
+<h2 class='titre'> NOS UNIVERS D'INFORMATION </h2>
+<div id='slider-mask'>
+    <div id='slider-layer'>
+        <div id='slider'>
+            <!-- UNIVERS -->
+            {% for univers in univers_all %}
+            <a href="{{ univers.get_absolute_url }}" class='slider-item'>
+                <img src='{{ MEDIA_URL }}univers/small_cover/{{ univers.small_cover }}' alt="illustration de l'univers {{ univers.title }}"/>
+                <div class='slider-item-caption'>
+                    <p>{{ univers.title|upper }}</p>
+                </div>
+            </a>
+            {% endfor %}
+            <!-- UNIVERS -->
+        </div>
+    </div>
+    <!-- Controls -->
+    <a id='slider-control-left' class='slider-control' href="javascript:void(0);">
+        <btn class='fa fa-chevron-left'></btn>
+    </a>
+    <a id='slider-control-right' class='slider-control' href="javascript:void(0);">
+        <btn class='fa fa-chevron-right'></btn>
+    </a>
+</div>
+
+
+<div id='liste-all-titres'>
+    <h2 class='titre'>TOUS LES TITRES</h2>
+    <div class='container-all-titres'>
+        <!-- ITEMS -->
+        {% for revue in revues %}
+        <div class='layer-container-titre'>
+        <a class='container-titre' href="{{ revue.get_absolute_url }}" class='container-titre'>
+            <div class='cover-wrapper'>
+                <div class='cover-detail'>
+                    <p>
+                        <h4 class="cover-detail-univers">Univers<br />
+                            <b class="univers">{{ revue.univers.title|upper }}</b>
+                        </h4>
+                        <p>{{ revue.baseline }}</p>
+                    </p>
+                </div>
+            </div>
+            <img src='{{ MEDIA_URL }}couvertures/{{ revue.couverture }}' alt='couverture de la revue' />
+            <div class='info-titre'>
+                <h3>{{ revue.title }}</h3>
+            </div>
+        </a>
+        </div>
+        {% endfor %}
+        <!-- ITEMS -->
+    </div>
+</div>
+
+
+{% endblock %}
