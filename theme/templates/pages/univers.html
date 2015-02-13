@@ -10,12 +10,12 @@
     <img id='banner' src='{{ MEDIA_URL }}univers/full_cover/{{ univers.full_cover }}' alt="présentation de l'univers de la communication grand format" />
     <h2 id='banner-titre'> {{ page.univers.title|upper }} </h2>
 </div>
-<div id='univers-presentation main'>
+<div id='main'>
         {{ page.univers.content|richtext_filters|safe }}
 </div>
 
 <div id='liste-all-titres'>
-    <h2 class='titre'>TOUS LES TITRES</h2>
+    <h2 class='titre'>LES TITRES DE L'UNIVERS</h2>
     <div class='container-all-titres'>
         <!-- ITEMS -->
         {% for revue in revues %}
@@ -46,3 +46,4 @@
 {% block extra_js %}
 <script src="{% static "js/univers.js" %}"></script>
 {% endblock %}
+

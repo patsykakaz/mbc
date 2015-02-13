@@ -2,38 +2,57 @@
 {% load  staticfiles mezzanine_tags %}
 
 {% block extra_css %}
-	<link rel="stylesheet" href="{% static "css/revue.css" %}">
+    <link rel="stylesheet" href="{% static "css/revue.css" %}">
 {% endblock %}
 
 {% block main %}
 <h1 class='titre'>{{ revue.title|upper }}</h1>
 <div id='main' class='container'>
     <div class='row'>
-
         <div id='cover' class='col-md-3 col-sm-4 col-xs-12 text-center'>
             <img src='{{ MEDIA_URL }}couvertures/{{ revue.couverture }}' alt='couverture de la revue' />
-		{% if contacts_revue %}
-		<h5>Contact</h5>
-		<div id='contacts-revue' class='text-justify'>
-		{% for contact_revue in contacts_revue %}
-		<span class='contact-revue contact-revue-master'><i class='fa fa-caret-right'></i> {{ contact_revue.intitule_fonction }}</span>
-		<span class='contact-revue'>{{ contact_revue.identite }}</span>
-		<span class='contact-revue'>{{ contact_revue.phone }}</span>
-		<span class='contact-revue'>{{ contact_revue.email }}</span>
-		{% endfor %}
-		</div>
-		{% endif %}		
+        {% if contacts_revue %}
+        <div id='contacts-revue' class='text-justify panel panel-default'>
+            <div class="panel-heading">
+                Contact
+            </div>
+            {% for contact_revue in contacts_revue %}
+            <div class="panel-body">
+                <span class='contact-revue contact-revue-master'>{{ contact_revue.intitule_fonction|upper }}</span>
+                {% if contact_revue.identite %}
+                <span class='contact-revue'>
+                    <i class='fa fa-user'></i>
+                    {{ contact_revue.identite|capfirst }}
+                </span>
+                {% endif %}
+                {% if contact_revue.phone %}
+                <span class='contact-revue'>
+                    <i class='fa fa-phone'></i>
+                    <a href="tel:{{ contact_revue.phone }}">{{ contact_revue.phone }}</a>
+                </span>
+                {% endif %}
+                {% if contact_revue.email %}
+                <span class='contact-revue'>
+                    <i class='fa fa-send'></i>
+                    <a href="mailto:{{ contact_revue.email }}">{{ contact_revue.email|lower }}</a>
+                </span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
         </div>
         <div class='col-md-7 col-sm-8 col-xs-12'>
             <div id='baseline'>{{ revue.baseline }}</div>
-            <div id='revue-data'>
-                <h4 class='data-slot'>Univers : <strong>{{ revue.univers|lower }}</strong></h4>
-                <h4 class='data-slot'>Type de revue : <strong>{{ revue.type_revue|lower }}</strong></h4>
-                <h4 class='data-slot'>Format : <strong>{{ revue.format_revue|lower }}</strong></h4>
-                <h4 class='data-slot'>Périodicié : <strong>{{ revue.periodicie|lower }}</strong></h4>
-                <h4 class='data-slot'>Tirage : <strong>{{ revue.tirage|lower }}</strong></h4>
-                <h4 class='data-slot'>Pagination : <strong>{{ revue.pagination|lower }}</strong></h4>
-                <h4 class='data-slot'>Lectorat : <strong>{{ revue.lectorat|lower }}</strong></h4>
+            <div id='revue-data' class='row text-justify'>
+                <div class='col-md-6 col-sm-6 col-xs-6 data-slot'><i class='fa fa-newspaper-o'></i> Type de revue : <span class='data-result'>{{ revue.type_revue|lower }}</span class='data-result'></div>
+                <div class='col-md-6 col-sm-6 col-xs-6 data-slot'><i class='fa fa-calendar'></i> Périodicité : <span class='data-result'>{{ revue.periodicite|lower }}</span class='data-result'></div>
+                <div class='col-md-6 col-sm-6 col-xs-6 data-slot'><i class='fa fa-line-chart'></i> Tirage : <span class='data-result'>{{ revue.tirage|lower }}</span class='data-result'></div>
+                <div class='col-md-6 col-sm-6 col-xs-6 data-slot'><i class='fa fa-plus-square-o'></i> Pagination : <span class='data-result'>{{ revue.pagination|lower }}</span class='data-result'></div>
+                <div class='col-md-12 col-sm-12 col-xs-12 data-slot'><i class='fa fa-users'></i> Lectorat : <span class='data-result'>{{ revue.lectorat|lower }}</span class='data-result'></div>
+                <div id='modal-btn' class='data-slot col-md-12 col-sm-12 col-xs-12 text-center'>
+                    <btn type="button" class='btn btn-default btn-sm' data-toggle="modal" data-target="#myModal">Contact</btn>
+                </div>
             </div>
             <div id='presentation-revue'>
                 {{ revue.presentation }}
@@ -41,19 +60,86 @@
         </div>
         <div id='revues-univers' class='col-md-2 col-sm-12 col-xs-12'>
             {% if revues_univers %}	
-            <h3 class='text-center'>Nos autres revues</h3>
-            {% for revue_univers in revues_univers %}
-                <a href='{{ revue_univers.get_absolute_url }}'>
-                    <img src='{{ MEDIA_URL }}couvertures/{{ revue_univers.couverture }}' alt='couverture revue du même univers' />
-                </a>
-            {% endfor %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class='text-center'>Nos autres revues</h3>
+                </div>
+                <div class="panel-body">
+                {% for revue_univers in revues_univers %}
+                    <a href='{{ revue_univers.get_absolute_url }}'>
+                        <img src='{{ MEDIA_URL }}couvertures/{{ revue_univers.couverture }}' alt='couverture revue du même univers' />
+                    </a>
+                {% endfor %}
+                </div>
+            </div>
             {% endif %}
         </div>
+    </div>
+</div>
+
+<!-- Modal --> 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Contact</h4>
+            </div>
+            <div class="modal-body">
+            {% for contact_revue in contacts_revue %}
+                <span class='contact-revue contact-revue-master'>{{ contact_revue.intitule_fonction|upper }}</span>
+                {% if contact_revue.identite %}
+                <span class='contact-revue'>
+                    <i class='fa fa-user'></i>
+                    {{ contact_revue.identite|capfirst }}
+                </span>
+                {% endif %}
+                {% if contact_revue.phone %}
+                <span class='contact-revue'>
+                    <i class='fa fa-phone'></i>
+                    <a href="tel:{{ contact_revue.phone }}">{{ contact_revue.phone }}</a>
+                </span>
+                {% endif %}
+                {% if contact_revue.email %}
+                <span class='contact-revue'>
+                    <i class='fa fa-send'></i>
+                    <a href="mailto:{{ contact_revue.email }}">{{ contact_revue.email|lower }}</a>
+                </span>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+            </div>    
+        </div> 
     </div>
 </div>
 
 {% endblock %}
 
 {% block extra_js %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        if($(window).width()>=768){
+            $('#contacts-revue').removeClass('hide');
+            $('#modal-btn').addClass('hide');
+        }else{
+            $('#modal-btn').removeClass('hide');
+            $('#contacts-revue').addClass('hide');
+        }
+    });
+    $(window).resize(function(){
+        if($(window).width()>768){
+            $('#contacts-revue').removeClass('hide');
+            $('#modal-btn').addClass('hide');
+        }else{
+            $('#modal-btn').removeClass('hide');
+            $('#contacts-revue').addClass('hide');
+        }
+    });
+</script>
 <script src="{% static "js/revue.js" %}"></script>
 {% endblock %}
+

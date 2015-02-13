@@ -3,9 +3,15 @@
 {% load mezzanine_tags %}
 
 {% block main %}{{ block.super }}
-
+<h2 class='titre'>{{ page.richtextpage.title|upper }}</h2>
+<div class='container'>
+<div class='row'>
+<div id='main' class='col-md-12'>
 {% editable page.richtextpage.content %}
 {{ page.richtextpage.content|richtext_filters|safe }}
 {% endeditable %}
+</div>
+</div>
+</div>
 
 {% endblock %}

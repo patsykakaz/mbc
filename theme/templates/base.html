@@ -90,22 +90,7 @@
 
 
 <footer id='footer'>
-    <div class='container text-center'>
-        <div class='row'>
-            <a href='{% url "home" %}' class='col-md-4 footer-block bottom-logo-alt'>
-                <img src='{% static 'svg/logo.svg' %}' />
-            </a>
-            <a href='{{ page.get_absolute_url }}' class='col-md-4 footer-block'>
-                Conditions d'Utilisation
-            </a>
-            <a href='{% url "home" %}' class='col-md-4 footer-block bottom-logo'>
-                <img src='{% static 'svg/logo.svg' %}' />
-            </a>
-            <a href='{{ page.get_absolute_url }}' class='col-md-4 footer-block'>
-                Mentions Légales
-            </a>
-        </div>
-    </div>
+{% page_menu "pages/menus/footer.html" %}
 </footer>
 
 {% include "includes/footer_scripts.html" %}

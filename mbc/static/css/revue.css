@@ -23,18 +23,16 @@
 }
 
 #cover img{
-	margin-bottom: 30px;
+	display: block;
+	margin: auto;
+	margin-bottom: 15px;
 }
-#contacts-revue{
-	padding: 4px 10px 4px 10px;
-	border-top: 1px dotted; 
-	border-right: 1px dotted;
-	border-color: rgb(150,150,150)
-}
-.contact-revue-master{
-}.contact-revue{
+.contact-revue{
         display: block;
-	padding: 0 10px 0 10px;
+	padding: 0 10px 0 20px;
+}.contact-revue a{ color: rgb(77,152,155);}
+.contact-revue-master{
+        padding: 15px 10px 0 0;
 }
 #baseline{
 	text-align: justify;
@@ -45,14 +43,14 @@
 	margin: 30px 0 30px 0;
 	text-align: left;
 }
-#revue-data h4{
-	font-weight: normal;
-	font-size: 15px;
-}#revue-data h4 strong{
-	font-weight: normal;
-	font-size: 16px;
+.data-slot{
+	padding: 3px 0 3px 0;
+}.data-result{
+	color: rgb(244,177,116);
 }
-
+#modal-btn{
+	padding: 20px;
+}
 #presentation-revue{
         padding-right: 20px;
 	margin-bottom: 30px;
@@ -63,7 +61,6 @@
 }
 
 #revues-univers{
-	border-left: 1px dotted rgb(150,150,150);
 }
 #revues-univers h3{
 	margin-top: 0;
@@ -75,4 +72,22 @@
 	display: inline-block;
 	max-width: 164px;
 	margin-top: 18px;
+	box-shadow: none;
 }
+
+.modal-body{
+	padding: 20px;
+}
+
+@media screen and (max-width: 768px){
+	#cover img{
+		margin-bottom: 40px;
+	}
+	#baseline{
+		width: 80%;
+		margin: auto;
+		text-align: center;	
+	}
+}
+
+
