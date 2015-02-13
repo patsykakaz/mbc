@@ -4,3 +4,7 @@
 .DS_Store
 .coverage
 local_settings.py
+bin/
+include/
+lib/
+local/
