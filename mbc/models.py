@@ -46,12 +46,13 @@ class Revue(Page):
 	lectorat = models.CharField(max_length=250, verbose_name='Description du lectorat')
 	baseline = models.CharField(max_length=300, verbose_name='Baseline de la revue')
 	presentation = models.TextField(verbose_name='Présentation de la revue')
-	contacts = models.TextField(verbose_name='contacts de la revue')
 
 class ContactRevue(models.Model):
 	revue = models.ForeignKey(Revue)
 	identite = models.CharField(max_length=250)
-	phone = models.CharField(max_length=28)
+	intitule_fonction = models.CharField(max_length=250,null=True,blank=True)
+	phone = models.CharField(max_length=28,null=True,blank=True)
+	email = models.EmailField(max_length=250,null=True,blank=True)
 
 
 

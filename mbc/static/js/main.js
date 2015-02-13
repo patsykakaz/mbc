@@ -62,7 +62,11 @@ liste_titres =
 
 // NAVBAR FOLD && UNFOLD
     navbarTrigger = $('.navbar').outerHeight() - 50;
-
+    if($('#main').length > 0){
+        small_width = $('#main').width()+'px';
+    }else{
+        small_width = '1000px';
+    }
     // On appelle une fois la fonction au debut avant scroll()
     // -> evite les conflits css ultérieurs
     $(document).ready(function(){
@@ -72,7 +76,7 @@ liste_titres =
             $('.navbar').addClass('navbar-fixed-top navbar-deploy');
         }
         if($(document).outerWidth() >= 1150 && $('.navbar').hasClass('navbar-deploy')){
-            $('.navbar .container-fluid').css('max-width','1000px');
+            $('.navbar .container-fluid').css('max-width',small_width);
         }
     });
 
@@ -101,7 +105,7 @@ liste_titres =
         // !Gestion du LOGO
         // max-width pour NAVBAR-DEPLOY 
         if($(document).outerWidth() >= 1150 && $('.navbar').hasClass('navbar-deploy')){
-            $('.navbar .container-fluid').css('max-width','1000px');
+            $('.navbar .container-fluid').css('max-width',small_width);
         }
         else{
             $('.navbar .container-fluid').css('max-width','100%');

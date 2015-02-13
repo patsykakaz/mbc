@@ -28,6 +28,9 @@
 #contacts-revue{
 	margin: 0 10px 0 10px;
 }
+.contact-revue{
+	display: block;
+}
 #baseline{
 	text-align: justify;
 	font-weight: lighter;

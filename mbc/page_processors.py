@@ -36,6 +36,7 @@ def processor_revue(request, page):
     revue = Revue.objects.get(title=page.title)
     couv = revue.couverture.url.split('/')
     revue.couverture = couv[-1]
+    contacts_revue = ContactRevue.objects.filter(revue=revue)
     univers = revue.univers
     revues_univers = Revue.objects.filter(Q(univers=univers)&~Q(title=page.title))
     for revue_univers in revues_univers :

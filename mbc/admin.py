@@ -12,7 +12,7 @@ from .models import *
 
 revue_extra_fieldsets = (
 		(None, 
-			{'fields': ('univers','couverture','type_revue','format_revue','periodicite','tirage','pagination','lectorat','baseline','presentation','contacts')
+			{'fields': ('univers','couverture','type_revue','format_revue','periodicite','tirage','pagination','lectorat','baseline','presentation')
 			}
 		),
 	)
