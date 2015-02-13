@@ -12,14 +12,17 @@
 
         <div id='cover' class='col-md-3 col-sm-4 col-xs-12 text-center'>
             <img src='{{ MEDIA_URL }}couvertures/{{ revue.couverture }}' alt='couverture de la revue' />
+		{% if contacts_revue %}
+		<h5>Contact</h5>
 		<div id='contacts-revue' class='text-justify'>
 		{% for contact_revue in contacts_revue %}
-		<strong class='contact-revue'>{{ contact_revue.intitule_fonction }}</strong>
+		<span class='contact-revue contact-revue-master'><i class='fa fa-caret-right'></i> {{ contact_revue.intitule_fonction }}</span>
 		<span class='contact-revue'>{{ contact_revue.identite }}</span>
 		<span class='contact-revue'>{{ contact_revue.phone }}</span>
 		<span class='contact-revue'>{{ contact_revue.email }}</span>
 		{% endfor %}
-		</div>		
+		</div>
+		{% endif %}		
         </div>
         <div class='col-md-7 col-sm-8 col-xs-12'>
             <div id='baseline'>{{ revue.baseline }}</div>

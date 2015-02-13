@@ -26,16 +26,20 @@
 	margin-bottom: 30px;
 }
 #contacts-revue{
-	margin: 0 10px 0 10px;
+	padding: 4px 10px 4px 10px;
+	border-top: 1px dotted; 
+	border-right: 1px dotted;
+	border-color: rgb(150,150,150)
 }
-.contact-revue{
-	display: block;
+.contact-revue-master{
+}.contact-revue{
+        display: block;
+	padding: 0 10px 0 10px;
 }
 #baseline{
 	text-align: justify;
 	font-weight: lighter;
 	font-size: 21px;
-	color: rgb(77,152,155);
 }
 #revue-data{
 	margin: 30px 0 30px 0;
@@ -59,12 +63,12 @@
 }
 
 #revues-univers{
-	border-left: 1px dotted rgb(77,152,155);
+	border-left: 1px dotted rgb(150,150,150);
 }
 #revues-univers h3{
 	margin-top: 0;
 	color: rgb(150,150,150);
-	font-weight: lighter;
+	letter-spacing: 1.5px;
 	font-size: 15px;
 }
 #revues-univers img{
