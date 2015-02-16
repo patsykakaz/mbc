@@ -55,7 +55,8 @@ body{
 #main{
 	max-width: 980px;
 	margin: auto;
-	padding: 70px 0 70px 0;
+	padding-top: 70px;
+	padding-bottom: 70px;
 	text-align: justify;
 	font-size: 18px;
 	color: rgb(150,150,150);
