@@ -12,7 +12,7 @@ from .models import *
 
 univers_extra_fieldsets = (
                 (None,
-                        {'fields': ('small_cover','full_cover')
+                        {'fields': ('RichText','small_cover','full_cover')
                         }
                 ),
         )
