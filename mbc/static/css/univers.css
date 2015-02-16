@@ -36,6 +36,18 @@ body{
 	font-size: 40px;
 	color: white;
 }
+#chiffres-univers{
+	width: 100%;
+	margin: 20px 0 20px 0;
+	text-align: justify;
+	font-family: 'Poiret One', sans-serif;
+}
+.chiffre{
+	width: 32%;
+	padding: 10px 20px 10px 20px;
+	background-color: rgb(244,177,116);
+	color: white;
+}
 #main{
 	margin: auto;
 	padding: 70px 0 70px 0;

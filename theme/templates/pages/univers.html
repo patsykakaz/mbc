@@ -10,16 +10,19 @@
     <img id='banner' src='{{ MEDIA_URL }}univers/full_cover/{{ univers.full_cover }}' alt="présentation de l'univers de la communication grand format" />
     <h2 id='banner-titre'> {{ page.univers.title|upper }} </h2>
 </div>
+
+<div id='chiffre-univers'>
+{% for chiffre in chiffres %}
+    <div class='chiffre'>
+        <div class='data-chiffre'>{{ chiffre.data_chiffre }}</div>
+        <div class='data-baseline'>{{ chiffre.data_baseline }}</div>
+    </div>
+{% endfor %}
+</div>
+
 <div id='main'>
         {{ page.univers.content|richtext_filters|safe }}
 </div>
-
-{% for chiffre in chiffres %}
-	<div>
-		{{ chiffre.data_baseline }} <br />
-		{{ chiffre.data_chiffre }}
-	</div>
-{% endfor %}
 
 <div id='liste-all-titres'>
     <h2 class='titre'>LES TITRES DE L'UNIVERS</h2>
