@@ -17,7 +17,7 @@ class Univers(Page, RichText):
 
 class Chiffre(models.Model):
 	univers = models.ForeignKey(Univers)
-	data_chiffre = models.CharField(max_length=100, verbose_name='Chiffre +unité (€,$,%...)')
+	data_chiffre = models.CharField(max_length=100, verbose_name='Chiffre + unité (€,$,%...)')
 	data_baseline = models.CharField(max_length=60, verbose_name='baseline du Chiffre')
 
 class Revue(Page):
