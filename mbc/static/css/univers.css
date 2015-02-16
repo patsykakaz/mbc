@@ -43,6 +43,7 @@ body{
 	font-family: 'Poiret One', sans-serif;
 }
 .chiffre{
+	display: inline-block;
 	width: 32%;
 	padding: 10px 20px 10px 20px;
 	background-color: rgb(244,177,116);
