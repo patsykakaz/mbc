@@ -29,6 +29,7 @@ def processor_univers(request, page):
     for revue in revues :
         couv = revue.couverture.url.split('/')
         revue.couverture = couv[-1]
+    chiffres = Chiffre.objects.filter(univers=univers).order_by('?')[:3]
     return locals()
 
 @processor_for(Revue)

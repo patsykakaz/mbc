@@ -14,6 +14,13 @@
         {{ page.univers.content|richtext_filters|safe }}
 </div>
 
+{% for chiffre in chiffres %}
+	<div>
+		{{ chiffre.data_baseline }} <br />
+		{{ chiffre.data_chiffre }}
+	</div>
+{% endfor %}
+
 <div id='liste-all-titres'>
     <h2 class='titre'>LES TITRES DE L'UNIVERS</h2>
     <div class='container-all-titres'>
