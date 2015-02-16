@@ -20,8 +20,12 @@
 {% endfor %}
 </div>
 
-<div id='main'>
+<div id='main' class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
         {{ page.univers.content|richtext_filters|safe }}
+        </div>
+    </div>
 </div>
 
 <div id='liste-all-titres'>
