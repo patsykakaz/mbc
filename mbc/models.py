@@ -15,6 +15,11 @@ class Univers(Page, RichText):
 	small_cover = models.ImageField(upload_to=MEDIA_ROOT+'/univers/small_cover', verbose_name="Image représentant l'univers sur la page d'accueil; Taille recommandée: 800x450; Poinds maximal recommandé: 90 Ko")
 	full_cover = models.ImageField(upload_to=MEDIA_ROOT+'/univers/full_cover', verbose_name="Image représentant l'univers sur la page Univers; Taille recommandée: 1600px de large; Poids maximal recommandé: 180Ko")
 
+class Chiffre(models.Model):
+	univers = models.ForeignKey(Univers)
+	data_chiffre = models.CharField(max_length=100, verbose_name='Chiffre +unité (€,$,%...)')
+	data_baseline = models.CharField(max_length=60, verbose_name='baseline du Chiffre')
+
 class Revue(Page):
 	univers = models.ForeignKey(Univers, verbose_name='Filière de la revue')
 	couverture = models.ImageField(upload_to=MEDIA_ROOT+'/couvertures', verbose_name='Couverture de la revue; Taille recommandée : 300px de large; Poids maximal recommandé : 80 Ko ')
