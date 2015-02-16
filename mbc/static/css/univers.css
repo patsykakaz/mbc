@@ -46,6 +46,7 @@ body{
 	width: 32%;
 	padding: 10px 20px 10px 20px;
 	background-color: rgba(244,177,116,.75);
+	border: 1px solid white;
 	color: white;
 }
 .data-chiffre, .data-baseline{
