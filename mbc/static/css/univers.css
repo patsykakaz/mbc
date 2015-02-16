@@ -50,6 +50,7 @@ body{
 	color: white;
 }
 #main{
+	max-width: 980px;
 	margin: auto;
 	padding: 70px 0 70px 0;
 	text-align: justify;
