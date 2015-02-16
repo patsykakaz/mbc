@@ -40,7 +40,6 @@ body{
 	width: 100%;
 	margin: 20px 0 20px 0;
 	text-align: justify;
-	font-family: 'Poiret One', sans-serif;
 }
 .chiffre{
 	display: inline-block;
@@ -49,9 +48,10 @@ body{
 	background-color: rgba(244,177,116,.75);
 	color: white;
 }
-.data-chiffre{
-	font-weight: bold;
+.data-chiffre, .data-baseline{
+	font-family: 'Poiret One', sans-serif;
 }
+
 #main{
 	max-width: 980px;
 	margin: auto;
