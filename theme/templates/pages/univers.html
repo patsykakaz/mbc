@@ -11,15 +11,16 @@
     <h2 id='banner-titre'> {{ page.univers.title|upper }} </h2>
 </div>
 
-<div id='chiffres-univers'>
+<div id='chiffres-univers' class='container'>
+<div class='row'>
 {% for chiffre in chiffres %}
-    <div class='chiffre text-center'>
+    <div class='col-md-4 col-sm-4 col-xs-12 chiffre text-center'>
         <h3 class='data-chiffre'>{{ chiffre.data_chiffre }}</h3>
         <div class='data-baseline'>{{ chiffre.data_baseline }}</div>
     </div>
 {% endfor %}
 </div>
-
+</div>
 <div id='main' class='container'>
     <div class='row'>
         <div class='col-md-12'>

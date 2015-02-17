@@ -39,17 +39,15 @@ body{
 #chiffres-univers{
 	width: 100%;
 	margin: 20px 0 20px 0;
-	text-align: justify;
+	text-align: justify;	
 }
 .chiffre{
-	display: inline-block;
-	width: 32%;
-	padding: 10px 20px 10px 20px;
+	padding: 30px 20px 20px 20px;
 	background-color: rgba(244,177,116,.75);
-	border: 1px solid white;
 	color: white;
 }
 .data-chiffre, .data-baseline{
+	margin-top: 0px;
 	font-family: 'Poiret One', sans-serif;
 }
 

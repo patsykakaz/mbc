@@ -1,14 +1,3 @@
-liste_titres =
-    [
-        "CHR-CHD", 
-        "img/titres/CHR/ADP.jpg",
-        "L'Auvergnat de Paris", 
-        "La référence du CHR-CHD en Ile de France et dans les territoires d’Auvergne et du Massif-central", 
-        "Crée en 1882, L’Auvergnat de Paris, avec 133 ans à son actif, est le plus ancien journal CHR de Paris. Tous les jeudis, il fournit toute l’information essentielle des établissements et du secteur (politique, économique, social, présentation de nouveaux produits, équipements et agencements) ainsi que l’actualité des territoires d’Auvergne et du Massif-central.",
-        "<b>Rédacteur en chef</b>  : Jean Michel Dehais <br />Mail : jm.dehais@lauvergnatdeparis.com <br /><b>Responsable de publicité</b>  : Catherine De Lamothe <br />Mail : pub@lauvergnatdeparis.com <br /><b>Responsables des Annonces légales & petites annonces</b>  : Naïma Mazurier <br />Mail : paleg@lauvergnatdeparis.com <br />Standard téléphonique  : 01 42 36 51 02 <br /><b>Abonnements</b>  : Florian Driguet <br />Mail : abonnement@groupembc.com <br />Standard téléphonique : 04 90 14 61 41"
-    ];
-
-
     $(document).ready(function(){
         navWidth = $('.container-fluid').outerWidth();
     });
