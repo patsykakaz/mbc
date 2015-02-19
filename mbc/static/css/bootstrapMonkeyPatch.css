@@ -212,6 +212,8 @@
 .panel{
 	border-color: rgb(240,240,240);
 }
+.panel-body{
+}
 
 @media screen and (max-width: 991px){
 	.couverture-modal{

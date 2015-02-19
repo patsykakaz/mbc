@@ -32,7 +32,7 @@
 <h2 class='titre'>{{ page.richtextpage.title|upper }}</h2>
 <div id='main' class='container'>
     <div class='row'>
-        <div id='MBurton' class='col-md-3 col-sm-3 col-xs-12 text-center'>
+        <div id='MBurton' class='col-md-3 col-sm-3 col-xs-6 text-center'>
             <div class='img-thumbnail'>
                 <img src='{% static 'img/michel_burton.jpg' %}' alt='michel burton' />
                 <div class="caption text-center">
@@ -50,7 +50,19 @@
 
 {% block extra_js %}
 <script type="text/javascript">
-    $('#content p:first').prepend('<i class="fa fa-long-arrow-right"></i> ');
+$(document).ready(function(){
+	$('#content p:first').prepend('<i class="fa fa-long-arrow-right"></i> ');
+	if($(window).width()<768){
+		$('.col-xs-6').css('float','none');
+	}
+});
+$(window).resize(function(){
+	if($(window).width()<768){
+		$('.col-xs-6').css('float','none');
+	}else{
+		$('.col-xs-6').css('float','left');
+	}
+});
 </script>
 {% endblock %}
 

@@ -65,11 +65,15 @@
                     <h3 class='text-center'>Nos autres revues</h3>
                 </div>
                 <div class="panel-body">
+		<div class='row'>
                 {% for revue_univers in revues_univers %}
+		    <div class='revue-univers col-md-12 col-sm-3 col-xs-4'>
                     <a href='{{ revue_univers.get_absolute_url }}'>
                         <img src='{{ MEDIA_URL }}couvertures/{{ revue_univers.couverture }}' alt='couverture revue du même univers' />
                     </a>
+		    </div>
                 {% endfor %}
+		</div>
                 </div>
             </div>
             {% endif %}
@@ -120,26 +124,6 @@
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript">
-    $(document).ready(function(){
-        if($(window).width()>=768){
-            $('#contacts-revue').removeClass('hide');
-            $('#modal-btn').addClass('hide');
-        }else{
-            $('#modal-btn').removeClass('hide');
-            $('#contacts-revue').addClass('hide');
-        }
-    });
-    $(window).resize(function(){
-        if($(window).width()>768){
-            $('#contacts-revue').removeClass('hide');
-            $('#modal-btn').addClass('hide');
-        }else{
-            $('#modal-btn').removeClass('hide');
-            $('#contacts-revue').addClass('hide');
-        }
-    });
-</script>
 <script src="{% static "js/revue.js" %}"></script>
 {% endblock %}
 

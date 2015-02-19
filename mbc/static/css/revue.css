@@ -29,10 +29,12 @@
 }
 .contact-revue{
         display: block;
-	padding: 0 10px 0 20px;
+	padding: 0 10px 0 10px;
+	word-break: break-all;
 }.contact-revue a{ color: rgb(77,152,155);}
 .contact-revue-master{
-        padding: 15px 10px 0 0;
+        padding: 15px 10px 0 10px;
+	word-break: normal;
 }
 #baseline{
 	text-align: justify;
@@ -68,11 +70,10 @@
 	letter-spacing: 1.5px;
 	font-size: 15px;
 }
-#revues-univers img{
+.revue-univers img{
 	display: inline-block;
-	max-width: 164px;
 	margin-top: 18px;
-	box-shadow: none;
+	box-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
 .modal-body{
