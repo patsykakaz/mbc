@@ -14,7 +14,7 @@ def home_processor(request, page):
     for univers in univers_all:
         couv = univers.small_cover.url.split('/')
         univers.small_cover = couv[-1]
-    revues = Revue.objects.all()
+    revues = Revue.objects.all().order_by('?')
     for revue in revues:
         couv = revue.couverture.url.split('/')
         revue.couverture = couv[-1]
@@ -39,7 +39,7 @@ def processor_revue(request, page):
     revue.couverture = couv[-1]
     contacts_revue = ContactRevue.objects.filter(revue=revue)
     univers = revue.univers
-    revues_univers = Revue.objects.filter(Q(univers=univers)&~Q(title=page.title))
+    revues_univers = Revue.objects.filter(Q(univers=univers)&~Q(title=page.title)).order_by('?')
     for revue_univers in revues_univers :
         couv = revue_univers.couverture.url.split('/')
         revue_univers.couverture = couv[-1]

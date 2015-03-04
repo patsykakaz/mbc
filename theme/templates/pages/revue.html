@@ -20,7 +20,7 @@
             <div class="panel-body">
                 <span class='contact-revue contact-revue-master'>{{ contact_revue.intitule_fonction|upper }}</span>
                 {% if contact_revue.identite %}
-                <span class='contact-revue'>
+                <span class='contact-revue' style='word-break:normal;'>
                     <i class='fa fa-user'></i>
                     {{ contact_revue.identite|capfirst }}
                 </span>
@@ -42,7 +42,7 @@
         </div>
         {% endif %}
         </div>
-        <div class='col-md-7 col-sm-8 col-xs-12'>
+        <div class='{% if revues_univers %}col-md-7{% elif not revues_univers %}col-md-9{% endif %} col-sm-8 col-xs-12'>
             <div id='baseline'>{{ revue.baseline }}</div>
             <div id='revue-data' class='row text-justify'>
                 <div class='col-md-6 col-sm-6 col-xs-6 data-slot'><i class='fa fa-newspaper-o'></i> Type de revue : <span class='data-result'>{{ revue.type_revue|lower }}</span class='data-result'></div>
